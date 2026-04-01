@@ -93,9 +93,10 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
+/* untuk menandai adanya higlight di "main-article"*/
 .highlight {
-  background-color: #fe4d;
-}
+  background-color: #225;
+} 
 
 .main-article h2 {
   font-size: 1.4rem;
@@ -204,4 +205,3 @@ nav a.active {
     font-size: 1.5rem;
   }
 }
-
