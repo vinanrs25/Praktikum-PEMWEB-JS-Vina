@@ -56,7 +56,7 @@ input.addEventListener('input', function() {
 
 // kode diubah menjadi "(teks.includes(keyword))", agar setiap kata yang mengandung input user akan ditampilkan
 
-// "=" digunakan untuk memberinilai ke variabel, bukan untuk membandingkan.Sedangkan "===" digunakan untuk digunakan untuk perbandingan 100 % , jadi harus benar benar mirip jika ingin inputannya ditampilkan dengan menggunakan === .
+// "=" digunakan untuk memberi nilai ke variabel, bukan untuk membandingkan.Sedangkan "===" digunakan untuk digunakan untuk perbandingan 100 % , jadi harus benar benar sama persis jika ingin inputannya ditampilkan dengan menggunakan "===" .
 // Bahaya "=" di if karena tidak terlihat error, tapi mengubah variabel yang menimbulkan kesulitan melacak logikanya
 
 
@@ -66,7 +66,7 @@ const navLink = document.querySelectorAll('nav a')
 
 navLink.forEach(function(link) {
     link.addEventListener('click', function(e) {
-        e.preventDefault;
+        e.preventDefault();
         navLink.forEach(function(item) {
             item.classList.remove('active')
         });
@@ -76,28 +76,30 @@ navLink.forEach(function(link) {
 
 // mengambil semua elemen tag <a> dengan querySelectorAll, dan perulangan dengan forEach untuk event click di setiap link
 // menggunakan e.preventDefault untuk mencegah halaman berpindah ketika fungsinya dijalankan
-// ketika class active tidak ada, akan ditambahkan kemudian ke link yang diklik, sehingga dalam satu waktu hanya ada satu link saja dengan class active
+// forEach pertama digunakan untuk mengambil setiap link yang ada di navbar dan diisimpan di variabel link, lalu diberi event click
+// forEach kedua digunakan untuk menghapus class 'active' dari semua link, dan classList.add berfungsi untuk menambahkan class active ke link yang diklik
+// sehingga dalam satu waktu hanya ada satu link saja dengan class active
 
 
 // Soal B2 – Estimasi Waktu Baca Dinamis (Manipulasi DOM)
 
 const paragraph = document.querySelectorAll('.main-article p')
-let semuaTeks = ' ';
+let semuaTeks = '';
 
 paragraph.forEach(function(p) {
-    semuaTeks += p.innerText + '';
+    semuaTeks += p.innerText + ' ';
 });
 
 const jumlahKata = semuaTeks.split(' ').length;
-const estimasi = Math.ceil(jumlahKata / 200);
+const estimasiBaca = Math.ceil(jumlahKata / 200);
 const meta = document.querySelector('.meta-info');
 
-meta.innerText += ' | Estimasi: ' + estimasi + ' menit baca';
+meta.innerText += ' | Estimasi: ' + estimasiBaca + ' menit baca';
 
 // mengambil semua elemen paragraf <p></p> mengunakan querySelectorAll, lalu menggabungkan semua teks dengan perulangan forEach dan operator +=
 // menghitung jumlah kata dengan split (' ') dan mengambil panjangnya dengan length
 // menghitung estimasi waktu baca dengan membagi jumlah kata dengan 200 dan dibulatkan dengan Math.ceil()
-// menambahkan hasil estimasi ke dalam elemen .meta-info menggunakan innerText tanpa menghapus teks yang sebelumnya
+// menambahkan hasil estimasi ke dalam elemen .meta-info menggunakan innerText += tanpa menghapus teks yang sebelumnya
 
 
 // Soal B3 – Filter Kategori Sidebar (Algoritma Sederhana)
