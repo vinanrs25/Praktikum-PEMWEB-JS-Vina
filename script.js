@@ -33,14 +33,18 @@ judul.addEventListener('click', function() {
 // Soal A3 – Filter Kategori Tidak Berfungsi dengan Benar
 
 const input = document.querySelector('#filter-kategori');
-const kategori = document.querySelectorAll('.sidebar-widget')[1];
-const items = kategori.querySelectorAll('li');
+const items = input.nextElementSibling.querySelectorAll('.sidebar-widget li');
+
+// mengambil elemen input dengan id filter-kategori
+// menggunakan nextElementSibling untuk ambil elemen setelah input yaitu 'ul'
+// diambil semua li yang ada di dalam ul sebagai item kategori
+// tujuan menggunakan nextElementSibling agar hanya membawa bagian elemen yang akan dituju selanjutnya, jika tidak menggunakan, elemen yang sama di class sidebar-widget akan ikut terfilter juga
 
 input.addEventListener('input', function() {
     const keyword = input.value.toLowerCase();
     items.forEach(function(item) {
         const teks = item.innerText.toLowerCase();
-        if (teks.includes(keyword)) {
+        if (teks.includes(keyword)) { //kata yang mengandung "keyword inputan user" akan ditampilkan
             item.style.display = '';
         } else {
             item.style.display = 'none';
